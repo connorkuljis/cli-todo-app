@@ -1,2 +1,5 @@
 todo:
-	go run ./cmd/todo
+	go build ./cmd/todo
+
+clean:
+	rm todo
