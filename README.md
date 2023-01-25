@@ -1,5 +1,7 @@
 # cli-todo-app
 
+![output of the -list command](shot.png)
+
 to build the project run `make`
 
 ## usage
