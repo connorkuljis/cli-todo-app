@@ -100,10 +100,16 @@ func (t *Todos) Print() {
 
 	for idx, item := range *t {
 		idx++
+		task := blue(item.Task)
+		done := blue("no")
+		if item.Done {
+			task = green(fmt.Sprintf("\u2705 %s", item.Task))
+			done = green("yes")
+		}
 		cells = append(cells, *&[]*simpletable.Cell{
 			{Text: fmt.Sprintf("%d", idx)},
-			{Text: item.Task},
-			{Text: fmt.Sprintf("%t", item.Done)},
+			{Text: task},
+			{Text: done},
 			{Text: item.CreatedAt.Format(time.RFC822)},
 			{Text: item.CompletedAt.Format(time.RFC822)},
 		})
@@ -121,5 +127,6 @@ func (t *Todos) Print() {
 	*/
 
 	table.Println()
-
 }
+
+// func (t *Todos) CountPending()
